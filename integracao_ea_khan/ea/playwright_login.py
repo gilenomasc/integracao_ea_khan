@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from playwright.sync_api import sync_playwright
 
 from integracao_ea_khan.progress import log_progress
@@ -12,6 +14,9 @@ class EAAuthenticator:
 
     def login(self):
         log_progress("EA", "Iniciando fluxo de login via Playwright.")
+        auth_path = Path(self.auth_file)
+        auth_path.parent.mkdir(parents=True, exist_ok=True)
+
         with sync_playwright() as p:
             browser = p.chromium.launch(channel="msedge", headless=False)
             context = browser.new_context(no_viewport=True)
@@ -44,7 +49,7 @@ class EAAuthenticator:
 
             page.wait_for_load_state()
 
-            context.storage_state(path=self.auth_file)
+            context.storage_state(path=str(auth_path))
             log_progress("EA", "Cookies/sessao salvos com sucesso.")
 
             browser.close()
