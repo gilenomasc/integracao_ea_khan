@@ -28,3 +28,4 @@ Projeto unificado para EA + Khan Academy com um unico ambiente virtual.
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover -s tests -p "test_*.py"
 ```
+# integracao_ea_khan
