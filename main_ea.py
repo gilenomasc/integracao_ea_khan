@@ -4,6 +4,7 @@ from integracao_ea_khan.ea.api import TeacherPortalAPI
 from integracao_ea_khan.ea.session_manager import SessionManager
 from integracao_ea_khan.ea.settings import settings
 from integracao_ea_khan.ea.student_export_service import StudentExportService
+from integracao_ea_khan.progress import log_progress
 
 
 def parse_args() -> argparse.Namespace:
@@ -26,10 +27,11 @@ def build_api(email: str, password: str) -> TeacherPortalAPI:
 
 def main() -> None:
     args = parse_args()
+    log_progress("EA", "Inicializando exportacao de alunos.")
     api = build_api(args.email, args.password)
     export_service = StudentExportService(api)
     data = export_service.export_to_json(args.output_file)
-    print(f"JSON gerado com {len(data)} turmas em {args.output_file}")
+    log_progress("EA", f"Exportacao concluida: {len(data)} turmas salvas em {args.output_file}.")
 
 
 if __name__ == "__main__":

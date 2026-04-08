@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 
 from integracao_ea_khan.integration.unified_export_service import build_unified_payload, load_json_file, load_match_results, write_json_file
+from integracao_ea_khan.progress import log_progress
 
 
 def parse_args() -> argparse.Namespace:
@@ -24,12 +25,13 @@ def parse_args() -> argparse.Namespace:
 
 
 def run_command(command: list[str], workdir: Path) -> None:
-    print(f"[unify] Executando: {' '.join(command)}", flush=True)
+    log_progress("UNIFY", f"Executando: {' '.join(command)}")
     subprocess.run(command, cwd=workdir, check=True)
 
 
 def main() -> None:
     args = parse_args()
+    log_progress("UNIFY", "Inicializando pipeline unificado.")
     project_dir = Path(__file__).resolve().parent
     output_dir = (project_dir / args.output_dir).resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -40,8 +42,10 @@ def main() -> None:
     unified_json = Path(args.output_json).resolve() if args.output_json else output_dir / "unified_matches.json"
 
     if not args.skip_ea:
+        log_progress("UNIFY", "Etapa 1/3: exportando base EA.")
         run_command([sys.executable, "main_ea.py", str(etapa_ea_json), args.ea_email, args.ea_password], project_dir)
     if not args.skip_khan:
+        log_progress("UNIFY", "Etapa 2/3: exportando dados Khan e executando matching.")
         command = [
             sys.executable,
             "main_khan.py",
@@ -62,11 +66,12 @@ def main() -> None:
             command.extend(["--match-min-score", str(args.match_min_score)])
         run_command(command, project_dir)
 
+    log_progress("UNIFY", "Etapa 3/3: consolidando JSON unificado.")
     etapa_ea_payload = load_json_file(etapa_ea_json)
     match_results = load_match_results(matches_dir)
     unified_payload = build_unified_payload(etapa_ea_payload, match_results, args.match_engine, etapa_ea_json, rosters_dir, matches_dir)
     write_json_file(unified_json, unified_payload)
-    print(f"[unify] JSON unificado salvo em: {unified_json}")
+    log_progress("UNIFY", f"JSON unificado salvo em: {unified_json}")
 
 
 if __name__ == "__main__":

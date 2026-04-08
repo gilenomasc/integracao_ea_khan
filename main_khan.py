@@ -10,6 +10,7 @@ from integracao_ea_khan.khan.api import KhanTeacherPortalAPI
 from integracao_ea_khan.khan.session_manager import SessionManager
 from integracao_ea_khan.khan.settings import settings
 from integracao_ea_khan.matching.name_match_service import match_students
+from integracao_ea_khan.progress import log_progress, log_step
 
 
 def parse_args() -> argparse.Namespace:
@@ -71,32 +72,49 @@ def build_match_output_paths(matches_dir: Path, classroom_name: str) -> tuple[Pa
 
 def main() -> None:
     args = parse_args()
+    log_progress("KHAN", "Inicializando exportacao das turmas Khan.")
     api = build_khan_api(args.email, args.password)
     output_file = Path(args.output_file)
     rosters_dir = Path(args.rosters_dir)
     class_list = api.get_class_list_simplified()
+    log_progress("KHAN", f"Salvando lista de turmas em {output_file}.")
     write_json_file(output_file, class_list)
     saved_class_list = load_json_file(output_file)
     roster_payloads = []
-    for classroom in saved_class_list:
+    total_classrooms = len(saved_class_list)
+    for index, classroom in enumerate(saved_class_list, start=1):
+        class_name = classroom["name"]
         if not classroom.get("descriptor") or not classroom.get("teacherKaid") or not classroom.get("signupCode"):
+            log_step("KHAN", index, total_classrooms, f"Turma {class_name}: dados incompletos, ignorada.")
             continue
+        log_step("KHAN", index, total_classrooms, f"Turma {class_name}: baixando roster.")
         roster_data = api.get_classroom_roster(classroom["descriptor"], classroom["teacherKaid"], classroom["signupCode"])
         roster_payload = api.build_classroom_roster_from_class_info(classroom, roster_data)
-        write_json_file(build_roster_output_path(rosters_dir, classroom), roster_payload)
+        roster_path = build_roster_output_path(rosters_dir, classroom)
+        write_json_file(roster_path, roster_payload)
         roster_payloads.append(roster_payload)
+        log_progress("KHAN", f"Turma {class_name}: roster salvo em {roster_path}.")
     if not args.etapa_ea_file:
+        log_progress("KHAN", "Arquivo da Etapa EA nao informado. Encerrando sem matching.")
         return
+    log_progress("KHAN", f"Carregando base Etapa EA de {args.etapa_ea_file}.")
     etapa_ea_payload = load_json_file(Path(args.etapa_ea_file))
     matches_dir = Path(args.matches_dir)
-    for roster_payload in roster_payloads:
+    total_rosters = len(roster_payloads)
+    for index, roster_payload in enumerate(roster_payloads, start=1):
         class_name = roster_payload["name"]
         if class_name not in etapa_ea_payload:
+            log_step("MATCH", index, total_rosters, f"Turma {class_name}: sem correspondente na Etapa EA, ignorada.")
             continue
+        log_step("MATCH", index, total_rosters, f"Turma {class_name}: executando matching ({args.match_engine}).")
         match_result = match_students(etapa_ea_payload, roster_payload, class_name, min_score=args.match_min_score, engine=args.match_engine)
         json_path, csv_path = build_match_output_paths(matches_dir, class_name)
         write_json_file(json_path, match_result)
         write_csv_file(csv_path, match_result["results"])
+        log_progress(
+            "MATCH",
+            f"Turma {class_name}: {match_result['matchedCount']} correspondencias, {len(match_result['warnings'])} alertas. Arquivos salvos em {json_path} e {csv_path}.",
+        )
 
 
 if __name__ == "__main__":

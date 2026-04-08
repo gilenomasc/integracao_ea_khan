@@ -1,5 +1,8 @@
 from __future__ import annotations
 from pathlib import Path
+
+from integracao_ea_khan.progress import log_progress
+
 from .base_client import BaseClient
 
 QUERIES_DIR = Path(__file__).resolve().parents[2] / "queries"
@@ -87,6 +90,7 @@ class KhanTeacherPortalAPI(BaseClient):
         return self._get_json(response)
 
     def get_classroom_roster(self, class_descriptor, teacher_kaid, signupCode, page_size=40):
+        log_progress("KHAN", f"Baixando roster da turma {signupCode}.")
         response_data = self.get_classroom_roster_page(
             class_descriptor=class_descriptor,
             teacher_kaid=teacher_kaid,
@@ -99,8 +103,11 @@ class KhanTeacherPortalAPI(BaseClient):
         students_page = classroom["studentsPage"]
         all_students = list(students_page.get("students", []))
         next_cursor = students_page.get("nextCursor")
+        page_number = 1
+        log_progress("KHAN", f"Turma {signupCode}: pagina {page_number} carregada, {len(all_students)} alunos acumulados.")
 
         while next_cursor is not None:
+            page_number += 1
             page_data = self.get_classroom_roster_page(
                 class_descriptor=class_descriptor,
                 teacher_kaid=teacher_kaid,
@@ -111,9 +118,11 @@ class KhanTeacherPortalAPI(BaseClient):
             page_students = page_data["data"]["classroom"]["studentsPage"]
             all_students.extend(page_students.get("students", []))
             next_cursor = page_students.get("nextCursor")
+            log_progress("KHAN", f"Turma {signupCode}: pagina {page_number} carregada, {len(all_students)} alunos acumulados.")
 
         classroom["studentsPage"]["students"] = all_students
         classroom["studentsPage"]["nextCursor"] = None
+        log_progress("KHAN", f"Roster da turma {signupCode} concluido com {len(all_students)} alunos.")
         return response_data
     
     # def get_classrooms(self):
@@ -121,10 +130,12 @@ class KhanTeacherPortalAPI(BaseClient):
     #     return response_data["data"]["coach"]["studentLists"]
 
     def get_class_list_simplified(self):
+        log_progress("KHAN", "Buscando lista de turmas.")
         response_data = self.get_class_list_raw()
         coach = response_data["data"]["coach"]
         classrooms = coach["studentLists"]
         teacher_kaid = coach["id"]
+        log_progress("KHAN", f"{len(classrooms)} turmas encontradas.")
         return [
             {
                 "name": classroom["name"],
