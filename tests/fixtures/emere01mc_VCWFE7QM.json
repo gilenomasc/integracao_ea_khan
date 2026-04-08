@@ -1,0 +1,286 @@
+{
+  "name": "EMERE01MC",
+  "signupCode": "VCWFE7QM",
+  "countStudents": 30,
+  "descriptor": "d96d856b-3a13-43f6-afb2-867aea186df9",
+  "teacherKaid": "kaid_752029819000364800709121",
+  "topics": [
+    "Prepare-se para o Ensino Médio (parte 2)",
+    "Matemática EM: Álgebra 1",
+    "Matemática EF: 9º Ano",
+    "Prepare-se para o 9º ano",
+    "Aritmética"
+  ],
+  "students": [
+    {
+      "__typename": "User",
+      "coachNickname": "Ana Beatriz Freitas",
+      "email": null,
+      "id": "kaid_69456998708354977681303",
+      "kaid": "kaid_69456998708354977681303",
+      "profileRoot": "/profile/anabeatrizfreitas/",
+      "username": "anabeatrizfreitas"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "André Reis",
+      "email": null,
+      "id": "kaid_463046245831766869803094",
+      "kaid": "kaid_463046245831766869803094",
+      "profileRoot": "/profile/andrereis/",
+      "username": "andrereis"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Beatriz Gomes",
+      "email": null,
+      "id": "kaid_330293510905354503945824",
+      "kaid": "kaid_330293510905354503945824",
+      "profileRoot": "/profile/beatrizgomes73/",
+      "username": "beatrizgomes73"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Beatriz Quinto",
+      "email": null,
+      "id": "kaid_1115700509331883054154267",
+      "kaid": "kaid_1115700509331883054154267",
+      "profileRoot": "/profile/beatrizquinto/",
+      "username": "beatrizquinto"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Daniel José",
+      "email": null,
+      "id": "kaid_888130223531682379850031",
+      "kaid": "kaid_888130223531682379850031",
+      "profileRoot": "/profile/danieljose69/",
+      "username": "danieljose69"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Eduardo Gil",
+      "email": null,
+      "id": "kaid_536200253440706713405300",
+      "kaid": "kaid_536200253440706713405300",
+      "profileRoot": "/profile/eduardogil2/",
+      "username": "eduardogil2"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Gabrielle Messias",
+      "email": null,
+      "id": "kaid_997973638501673117342414",
+      "kaid": "kaid_997973638501673117342414",
+      "profileRoot": "/profile/gabriellemessias/",
+      "username": "gabriellemessias"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Guilherme Karam",
+      "email": null,
+      "id": "kaid_763557714578396438014475",
+      "kaid": "kaid_763557714578396438014475",
+      "profileRoot": "/profile/guilhermekaram/",
+      "username": "guilhermekaram"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Heloisa Pires",
+      "email": null,
+      "id": "kaid_922345498909640494575095",
+      "kaid": "kaid_922345498909640494575095",
+      "profileRoot": "/profile/heloisapires/",
+      "username": "heloisapires"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Isabelle Lima",
+      "email": null,
+      "id": "kaid_1064758564068364876404863",
+      "kaid": "kaid_1064758564068364876404863",
+      "profileRoot": "/profile/isabellelima5/",
+      "username": "isabellelima5"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Isabelly Santos",
+      "email": null,
+      "id": "kaid_153873097144139097156597",
+      "kaid": "kaid_153873097144139097156597",
+      "profileRoot": "/profile/isabellysantos8/",
+      "username": "isabellysantos8"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Isadora Martins",
+      "email": null,
+      "id": "kaid_233159206407634098143021",
+      "kaid": "kaid_233159206407634098143021",
+      "profileRoot": "/profile/isadoramartins9/",
+      "username": "isadoramartins9"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Lais Andrade",
+      "email": null,
+      "id": "kaid_48240064204435497473359",
+      "kaid": "kaid_48240064204435497473359",
+      "profileRoot": "/profile/laisandrade4/",
+      "username": "laisandrade4"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Laura Leão",
+      "email": null,
+      "id": "kaid_810655056339061376680424",
+      "kaid": "kaid_810655056339061376680424",
+      "profileRoot": "/profile/lauraleao/",
+      "username": "lauraleao"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "laylalopeslima1606",
+      "email": "laylalopeslima1606@gmail.com",
+      "id": "kaid_259765117959933906108883",
+      "kaid": "kaid_259765117959933906108883",
+      "profileRoot": "/profile/kaid_259765117959933906108883/",
+      "username": null
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Lionelly Murari",
+      "email": null,
+      "id": "kaid_805432645724278892785500",
+      "kaid": "kaid_805432645724278892785500",
+      "profileRoot": "/profile/lionellymurari/",
+      "username": "lionellymurari"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Manuela Rozendo",
+      "email": null,
+      "id": "kaid_785922592700401481582100",
+      "kaid": "kaid_785922592700401481582100",
+      "profileRoot": "/profile/manuelarozendo/",
+      "username": "manuelarozendo"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Maria Clara Visconti",
+      "email": null,
+      "id": "kaid_504613729350446717830465",
+      "kaid": "kaid_504613729350446717830465",
+      "profileRoot": "/profile/mariaclaravisconti/",
+      "username": "mariaclaravisconti"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Maria Hellena",
+      "email": null,
+      "id": "kaid_349785347530024391643891",
+      "kaid": "kaid_349785347530024391643891",
+      "profileRoot": "/profile/mariahellena5/",
+      "username": "mariahellena5"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Maria Vitória Vital",
+      "email": null,
+      "id": "kaid_1061591616797542366695168",
+      "kaid": "kaid_1061591616797542366695168",
+      "profileRoot": "/profile/mariavitoriavital/",
+      "username": "mariavitoriavital"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Nicolas Soares",
+      "email": null,
+      "id": "kaid_135210836162954408563769",
+      "kaid": "kaid_135210836162954408563769",
+      "profileRoot": "/profile/nicolassoares44/",
+      "username": "nicolassoares44"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Otávio Araújo",
+      "email": null,
+      "id": "kaid_890022967378825050994911",
+      "kaid": "kaid_890022967378825050994911",
+      "profileRoot": "/profile/otavioaraujo6/",
+      "username": "otavioaraujo6"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "paulosergiom092",
+      "email": "paulosergiom092@gmail.com",
+      "id": "kaid_284258704758398660054174",
+      "kaid": "kaid_284258704758398660054174",
+      "profileRoot": "/profile/Paulinhoooo/",
+      "username": "Paulinhoooo"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Pedro Lopes",
+      "email": null,
+      "id": "kaid_634930995465050386062313",
+      "kaid": "kaid_634930995465050386062313",
+      "profileRoot": "/profile/pedrolopes58/",
+      "username": "pedrolopes58"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Ricardo Vieira Souto",
+      "email": null,
+      "id": "kaid_741567412992414058222043",
+      "kaid": "kaid_741567412992414058222043",
+      "profileRoot": "/profile/ricardovieirasouto/",
+      "username": "ricardovieirasouto"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Sarah Oliveira Martins",
+      "email": null,
+      "id": "kaid_404074947716218888592321",
+      "kaid": "kaid_404074947716218888592321",
+      "profileRoot": "/profile/saraholiveiramartins/",
+      "username": "saraholiveiramartins"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Sarah Souza",
+      "email": null,
+      "id": "kaid_791475683506638595427574",
+      "kaid": "kaid_791475683506638595427574",
+      "profileRoot": "/profile/sarahsouza6/",
+      "username": "sarahsouza6"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Sofia Araujo",
+      "email": null,
+      "id": "kaid_436664731189131409660729",
+      "kaid": "kaid_436664731189131409660729",
+      "profileRoot": "/profile/sofiaaraujo7/",
+      "username": "sofiaaraujo7"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "Thiago Araújo",
+      "email": null,
+      "id": "kaid_842789870097334417205729",
+      "kaid": "kaid_842789870097334417205729",
+      "profileRoot": "/profile/thiagoaraujo93/",
+      "username": "thiagoaraujo93"
+    },
+    {
+      "__typename": "User",
+      "coachNickname": "vitoriaf.stenz",
+      "email": "vitoriaf.stenz@gmail.com",
+      "id": "kaid_3463433091258560737681821",
+      "kaid": "kaid_3463433091258560737681821",
+      "profileRoot": "/profile/kaid_3463433091258560737681821/",
+      "username": null
+    }
+  ]
+}

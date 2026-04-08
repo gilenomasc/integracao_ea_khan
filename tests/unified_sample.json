@@ -1,0 +1,273 @@
+{
+  "generatedAt": "2026-04-07T21:46:36",
+  "engine": "fast",
+  "sources": {
+    "etapaEAFile": "alunos.json",
+    "rostersDir": "rosters",
+    "matchesDir": "matches"
+  },
+  "summary": {
+    "classCountEtapaEA": 11,
+    "classCountMatched": 1,
+    "schoolStudentCount": 29,
+    "khanStudentCount": 30,
+    "matchedCount": 28,
+    "warningCount": 0,
+    "unmatchedKhanCount": 2
+  },
+  "classes": {
+    "EMERE01MC": {
+      "className": "EMERE01MC",
+      "rosterName": "EMERE01MC",
+      "engine": "fast",
+      "schoolStudentCount": 29,
+      "khanStudentCount": 30,
+      "matchedCount": 28,
+      "results": [
+        {
+          "ra": "0083090",
+          "school_name": "Ana Beatriz Freitas dos Santos",
+          "khan_name": "Ana Beatriz Freitas",
+          "khan_username": "anabeatrizfreitas",
+          "score": 342.5653535832938,
+          "status": "matched"
+        },
+        {
+          "ra": "0082992",
+          "school_name": "Beatriz Quinto de Oliveira",
+          "khan_name": "Beatriz Quinto",
+          "khan_username": "beatrizquinto",
+          "score": 309.6666666666667,
+          "status": "matched"
+        },
+        {
+          "ra": "63110",
+          "school_name": "Daniel José Meneses Assunção",
+          "khan_name": "Daniel José",
+          "khan_username": "danieljose69",
+          "score": 266.82783882783883,
+          "status": "matched"
+        },
+        {
+          "ra": "63372",
+          "school_name": "Eduardo Gil Parreira",
+          "khan_name": "Eduardo Gil",
+          "khan_username": "eduardogil2",
+          "score": 334.4626728110599,
+          "status": "matched"
+        },
+        {
+          "ra": "0083962",
+          "school_name": "Guilherme Karam Correia da Silva",
+          "khan_name": "Guilherme Karam",
+          "khan_username": "guilhermekaram",
+          "score": 275.72765957446813,
+          "status": "matched"
+        },
+        {
+          "ra": "0079561",
+          "school_name": "Heloisa Pires da Silva",
+          "khan_name": "Heloisa Pires",
+          "khan_username": "heloisapires",
+          "score": 324.5603686635945,
+          "status": "matched"
+        },
+        {
+          "ra": "0075546",
+          "school_name": "Isabelle Lima Santos",
+          "khan_name": "Isabelle Lima",
+          "khan_username": "isabellelima5",
+          "score": 358.46060606060604,
+          "status": "matched"
+        },
+        {
+          "ra": "0081392",
+          "school_name": "Isabelly Santos Silva",
+          "khan_name": "Isabelly Santos",
+          "khan_username": "isabellysantos8",
+          "score": 372.1515151515151,
+          "status": "matched"
+        },
+        {
+          "ra": "64766",
+          "school_name": "Isadora Martins Sabará",
+          "khan_name": "Isadora Martins",
+          "khan_username": "isadoramartins9",
+          "score": 364.9532591414944,
+          "status": "matched"
+        },
+        {
+          "ra": "65431",
+          "school_name": "Lais Andrade dos Anjos",
+          "khan_name": "Lais Andrade",
+          "khan_username": "laisandrade4",
+          "score": 313.1411764705882,
+          "status": "matched"
+        },
+        {
+          "ra": "0083359",
+          "school_name": "Laura Leão Sales",
+          "khan_name": "Laura Leão",
+          "khan_username": "lauraleao",
+          "score": 353.98996655518397,
+          "status": "matched"
+        },
+        {
+          "ra": "0079288",
+          "school_name": "Layla Lopes Lima",
+          "khan_name": "laylalopeslima1606",
+          "khan_username": "laylalopeslima1606",
+          "score": 236.89411764705883,
+          "status": "matched"
+        },
+        {
+          "ra": "0083734",
+          "school_name": "Lionelly Vitória Santos Murari",
+          "khan_name": "Lionelly Murari",
+          "khan_username": "lionellymurari",
+          "score": 287.8178861788618,
+          "status": "matched"
+        },
+        {
+          "ra": "0083732",
+          "school_name": "Manuela Rozendo da Silva",
+          "khan_name": "Manuela Rozendo",
+          "khan_username": "manuelarozendo",
+          "score": 331.8769230769231,
+          "status": "matched"
+        },
+        {
+          "ra": "66295",
+          "school_name": "Maria Hellena Alves Carneiro",
+          "khan_name": "Maria Hellena",
+          "khan_username": "mariahellena5",
+          "score": 288.5012524719842,
+          "status": "matched"
+        },
+        {
+          "ra": "0083710",
+          "school_name": "Maria Vitória da Silva Vital",
+          "khan_name": "Maria Vitória Vital",
+          "khan_username": "mariavitoriavital",
+          "score": 343.6738972496108,
+          "status": "matched"
+        },
+        {
+          "ra": "0078231",
+          "school_name": "Nícolas Soares de Jesus",
+          "khan_name": "Nicolas Soares",
+          "khan_username": "nicolassoares44",
+          "score": 328.42653562653567,
+          "status": "matched"
+        },
+        {
+          "ra": "66956",
+          "school_name": "Otávio Araujo de Brito",
+          "khan_name": "Otávio Araújo",
+          "khan_username": "otavioaraujo6",
+          "score": 324.5603686635945,
+          "status": "matched"
+        },
+        {
+          "ra": "0078737",
+          "school_name": "Paulo Sérgio Monteiro",
+          "khan_name": "paulosergiom092",
+          "khan_username": "Paulinhoooo",
+          "score": 179.08366013071895,
+          "status": "matched"
+        },
+        {
+          "ra": "67135",
+          "school_name": "Pedro Lopes Saraiva",
+          "khan_name": "Pedro Lopes",
+          "khan_username": "pedrolopes58",
+          "score": 342.02222222222224,
+          "status": "matched"
+        },
+        {
+          "ra": "0078722",
+          "school_name": "Ricardo Vieira Souto",
+          "khan_name": "Ricardo Vieira Souto",
+          "khan_username": "ricardovieirasouto",
+          "score": 490.0,
+          "status": "matched"
+        },
+        {
+          "ra": "0082762",
+          "school_name": "Sarah Eduarda Maia Souza",
+          "khan_name": "Sarah Souza",
+          "khan_username": "sarahsouza6",
+          "score": 278.3907834101382,
+          "status": "matched"
+        },
+        {
+          "ra": "67703",
+          "school_name": "Sofia Araujo Dantas",
+          "khan_name": "Sofia Araujo",
+          "khan_username": "sofiaaraujo7",
+          "score": 354.55668202764974,
+          "status": "matched"
+        },
+        {
+          "ra": "0083597",
+          "school_name": "Thiago Araujo de Souza",
+          "khan_name": "Thiago Araújo",
+          "khan_username": "thiagoaraujo93",
+          "score": 324.5603686635945,
+          "status": "matched"
+        },
+        {
+          "ra": "0078147",
+          "school_name": "Vitória da França Stenz",
+          "khan_name": "vitoriaf.stenz",
+          "khan_username": "vitoriaf.stenz",
+          "score": 240.64275184275186,
+          "status": "matched"
+        },
+        {
+          "ra": "0077905",
+          "school_name": "Sarah Oliveira Martins",
+          "khan_name": "Sarah Oliveira Martins",
+          "khan_username": "saraholiveiramartins",
+          "score": 490.0,
+          "status": "matched"
+        },
+        {
+          "ra": "0084150",
+          "school_name": "Gabrielle Messias de Alfredo",
+          "khan_name": "Gabrielle Messias",
+          "khan_username": "gabriellemessias",
+          "score": 326.14742547425476,
+          "status": "matched"
+        },
+        {
+          "ra": "0084159",
+          "school_name": "André Luis Souza Reis",
+          "khan_name": "André Reis",
+          "khan_username": "andrereis",
+          "score": 284.82580645161295,
+          "status": "matched"
+        },
+        {
+          "ra": "0084166",
+          "school_name": "Miguel dos Santos Moura",
+          "khan_name": null,
+          "khan_username": null,
+          "score": null,
+          "status": "unmatched"
+        }
+      ],
+      "warnings": [],
+      "unmatchedKhan": [
+        {
+          "khanName": "Beatriz Gomes",
+          "khanUsername": "beatrizgomes73"
+        },
+        {
+          "khanName": "Maria Clara Visconti",
+          "khanUsername": "mariaclaravisconti"
+        }
+      ]
+    }
+  }
+}
