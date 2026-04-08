@@ -41,6 +41,8 @@ def save_context(employee_id, term_id):
         "academic_term_id": term_id
     }
 
+    CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+
     with open(CACHE_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f)
 
