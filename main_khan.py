@@ -17,7 +17,12 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("email")
     parser.add_argument("password")
-    parser.add_argument("--output-file", default="tests/class_list_response.json")
+    parser.add_argument(
+        "--class-list-output-file",
+        "--output-file",
+        dest="class_list_output_file",
+        default="tests/class_list_response.json",
+    )
     parser.add_argument("--rosters-dir", default="tests/classroom_rosters")
     parser.add_argument("--etapa-ea-file")
     parser.add_argument("--matches-dir", default="tests/matches")
@@ -74,12 +79,12 @@ def main() -> None:
     args = parse_args()
     log_progress("KHAN", "Inicializando exportacao das turmas Khan.")
     api = build_khan_api(args.email, args.password)
-    output_file = Path(args.output_file)
+    class_list_output_path = Path(args.class_list_output_file)
     rosters_dir = Path(args.rosters_dir)
     class_list = api.get_class_list_simplified()
-    log_progress("KHAN", f"Salvando lista de turmas em {output_file}.")
-    write_json_file(output_file, class_list)
-    saved_class_list = load_json_file(output_file)
+    log_progress("KHAN", f"Salvando lista de turmas em {class_list_output_path}.")
+    write_json_file(class_list_output_path, class_list)
+    saved_class_list = load_json_file(class_list_output_path)
     roster_payloads = []
     total_classrooms = len(saved_class_list)
     for index, classroom in enumerate(saved_class_list, start=1):

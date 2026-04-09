@@ -88,6 +88,41 @@ class KhanTeacherPortalAPI(BaseClient):
             },
         )
         return self._get_json(response)
+    
+    def get_progress_by_student(self, class_descriptor, page_size=40, after=0):
+        response = self.request(
+            "POST",
+            "/api/internal/graphql/ProgressByStudent",
+            params={
+                "lang": self.language,
+                "app": "khanacademy",
+            },
+            headers={
+                "User-Agent": "Mozilla/5.0",
+                "Accept": "*/*",
+                "Accept-Language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+                "Content-Type": "application/json",
+                "Referer": f"https://www.khanacademy.org/teacher/class/{class_descriptor}/assignment-scores",
+                "Origin": "https://www.khanacademy.org",
+                "x-ka-fkey": "1",
+            },
+            json={
+                "operationName": "ProgressByStudent",
+                "variables": {
+                    "classDescriptor": class_descriptor,
+                    "assignmentFilters": {
+                        'dueAfter': None,
+                        'dueBefore': None,
+                        'contentKinds': None,
+                        'courseIDs': None,
+                    },
+                    "after": after,
+                    "pageSize": page_size,
+                },
+                "query": load_query("get_progress_by_student.graphql"),
+            },
+        )
+        return self._get_json(response)
 
     def get_classroom_roster(self, class_descriptor, teacher_kaid, signupCode, page_size=40):
         log_progress("KHAN", f"Baixando roster da turma {signupCode}.")
