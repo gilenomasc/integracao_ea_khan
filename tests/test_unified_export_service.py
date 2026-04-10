@@ -24,6 +24,7 @@ class UnifiedExportServiceTestCase(unittest.TestCase):
         self.assertEqual(payload["summary"]["classCountMatched"], 1)
         self.assertEqual(payload["summary"]["matchedCount"], 28)
         self.assertIn("EMERE01MC", payload["classes"])
+        self.assertEqual(payload["classes"]["EMERE01MC"]["signupCode"], "VCWFE7QM")
 
 
 if __name__ == "__main__":
