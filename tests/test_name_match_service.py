@@ -19,6 +19,7 @@ class NameMatchServiceTestCase(unittest.TestCase):
 
         self.assertEqual(result["matchedCount"], 28)
         self.assertEqual(len(result["warnings"]), 0)
+        self.assertEqual(result["signupCode"], "VCWFE7QM")
 
         matched = {
             row["school_name"]: row["khan_username"]

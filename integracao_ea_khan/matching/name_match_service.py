@@ -483,6 +483,7 @@ def match_students(
     return {
         "className": class_name,
         "rosterName": roster_payload.get("name"),
+        "signupCode": roster_payload.get("signupCode"),
         "engine": engine,
         "schoolStudentCount": len(school_students),
         "khanStudentCount": len(khan_students),
