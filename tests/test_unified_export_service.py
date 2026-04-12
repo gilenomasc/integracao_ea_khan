@@ -25,6 +25,9 @@ class UnifiedExportServiceTestCase(unittest.TestCase):
         self.assertEqual(payload["summary"]["matchedCount"], 28)
         self.assertIn("EMERE01MC", payload["classes"])
         self.assertEqual(payload["classes"]["EMERE01MC"]["signupCode"], "VCWFE7QM")
+        self.assertEqual(payload["classes"]["EMERE01MC"]["descriptor"], "d96d856b-3a13-43f6-afb2-867aea186df9")
+        self.assertEqual(payload["classes"]["EMERE01MC"]["teacherKaid"], "kaid_752029819000364800709121")
+        self.assertTrue(payload["classes"]["EMERE01MC"]["rosterFile"].endswith("emere01mc_VCWFE7QM.json"))
 
 
 if __name__ == "__main__":

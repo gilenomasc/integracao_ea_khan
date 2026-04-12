@@ -89,7 +89,7 @@ class KhanTeacherPortalAPI(BaseClient):
         )
         return self._get_json(response)
     
-    def get_progress_by_student(self, class_descriptor, page_size=40, after=0):
+    def get_progress_by_student(self, class_descriptor, page_size=40, after=None):
         response = self.request(
             "POST",
             "/api/internal/graphql/ProgressByStudent",
@@ -123,6 +123,71 @@ class KhanTeacherPortalAPI(BaseClient):
             },
         )
         return self._get_json(response)
+
+    def get_progress_by_student_all_pages(self, class_descriptor, class_name, page_size=40):
+        log_progress("KHAN", f"Baixando progresso da turma {class_name}.")
+        response_data = self.get_progress_by_student(
+            class_descriptor=class_descriptor,
+            page_size=page_size,
+            after=None,
+        )
+
+        classroom = response_data["data"]["classroom"]
+        assignments_page = classroom["assignmentsPage"]
+        all_assignments = list(assignments_page.get("assignments", []))
+        page_info = assignments_page.get("pageInfo", {})
+        next_cursor = page_info.get("nextCursor")
+        seen_cursors = {next_cursor} if next_cursor is not None else set()
+        page_number = 1
+        log_progress(
+            "KHAN",
+            f"Turma {class_name}: pagina {page_number} de progresso carregada, {len(all_assignments)} atividades acumuladas.",
+        )
+
+        while next_cursor is not None:
+            page_number += 1
+            current_cursor = next_cursor
+            page_data = self.get_progress_by_student(
+                class_descriptor=class_descriptor,
+                page_size=page_size,
+                after=current_cursor,
+            )
+            page_assignments = page_data["data"]["classroom"]["assignmentsPage"]
+            page_assignments_list = page_assignments.get("assignments", [])
+            all_assignments.extend(page_assignments_list)
+            next_cursor = page_assignments.get("pageInfo", {}).get("nextCursor")
+            log_progress(
+                "KHAN",
+                f"Turma {class_name}: pagina {page_number} de progresso carregada, {len(all_assignments)} atividades acumuladas.",
+            )
+            if next_cursor == current_cursor:
+                log_progress(
+                    "KHAN",
+                    f"Turma {class_name}: cursor de progresso repetido ({current_cursor}); interrompendo paginacao para evitar loop.",
+                )
+                next_cursor = None
+                break
+            if next_cursor in seen_cursors:
+                log_progress(
+                    "KHAN",
+                    f"Turma {class_name}: cursor de progresso ja visto ({next_cursor}); interrompendo paginacao para evitar loop.",
+                )
+                next_cursor = None
+                break
+            if next_cursor is not None:
+                seen_cursors.add(next_cursor)
+            if not page_assignments_list and next_cursor is not None:
+                log_progress(
+                    "KHAN",
+                    f"Turma {class_name}: pagina sem atividades e com proximo cursor ({next_cursor}); interrompendo paginacao defensivamente.",
+                )
+                next_cursor = None
+                break
+
+        classroom["assignmentsPage"]["assignments"] = all_assignments
+        classroom["assignmentsPage"]["pageInfo"]["nextCursor"] = None
+        log_progress("KHAN", f"Progresso da turma {class_name} concluido com {len(all_assignments)} atividades.")
+        return response_data
 
     def get_classroom_roster(self, class_descriptor, teacher_kaid, signupCode, page_size=40):
         log_progress("KHAN", f"Baixando roster da turma {signupCode}.")
