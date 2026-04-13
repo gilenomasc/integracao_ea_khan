@@ -8,3 +8,6 @@ state/*.json
 tests/unified/
 tests/classroom_rosters/
 tests/matches/
+tests/classroom_progress/
+tests/*.json
+tests/fixtures/

@@ -18,6 +18,25 @@ def write_json_file(file_path: str | Path, data) -> None:
         json.dump(data, file, ensure_ascii=False, indent=2)
 
 
+def _build_roster_index(rosters_dir: str | Path) -> dict[str, dict]:
+    path = Path(rosters_dir)
+    roster_index: dict[str, dict] = {}
+    for roster_file in sorted(path.glob("*.json")):
+        roster_payload = load_json_file(roster_file)
+        class_name = roster_payload.get("name")
+        if not class_name:
+            continue
+        roster_index[class_name] = {
+            "descriptor": roster_payload.get("descriptor"),
+            "teacherKaid": roster_payload.get("teacherKaid"),
+            "signupCode": roster_payload.get("signupCode"),
+            "topics": roster_payload.get("topics", []),
+            "countStudents": roster_payload.get("countStudents"),
+            "rosterFile": str(roster_file),
+        }
+    return roster_index
+
+
 def build_unified_payload(
     etapa_ea_payload: dict,
     match_results: list[dict],
@@ -26,8 +45,12 @@ def build_unified_payload(
     rosters_dir: str | Path,
     matches_dir: str | Path,
 ) -> dict:
+    roster_index = _build_roster_index(rosters_dir)
     classes = {
-        result["className"]: result
+        result["className"]: {
+            **result,
+            **roster_index.get(result["className"], {}),
+        }
         for result in sorted(match_results, key=lambda item: item["className"])
     }
 

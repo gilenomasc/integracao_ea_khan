@@ -76,6 +76,59 @@ class KhanTeacherPortalAPITestCase(unittest.TestCase):
         response.raise_for_status.assert_called_once()
         response.json.assert_called_once()
 
+    @patch("integracao_ea_khan.khan.base_client.requests.Session")
+    def test_get_progress_by_student_all_pages_stops_on_repeated_cursor(self, session_cls) -> None:
+        session_manager = MagicMock()
+        session = MagicMock()
+        session_cls.return_value = session
+
+        first_response = MagicMock()
+        first_response.raise_for_status.return_value = None
+        first_response.json.return_value = {
+            "data": {
+                "classroom": {
+                    "descriptor": "abc123",
+                    "assignmentsPage": {
+                        "assignments": [],
+                        "pageInfo": {"nextCursor": "cursor-1"},
+                    },
+                }
+            }
+        }
+
+        second_response = MagicMock()
+        second_response.raise_for_status.return_value = None
+        second_response.json.return_value = {
+            "data": {
+                "classroom": {
+                    "descriptor": "abc123",
+                    "assignmentsPage": {
+                        "assignments": [],
+                        "pageInfo": {"nextCursor": "cursor-1"},
+                    },
+                }
+            }
+        }
+
+        session.request.side_effect = [first_response, second_response]
+
+        api = KhanTeacherPortalAPI(
+            base_url="https://khanacademy.org",
+            session_manager=session_manager,
+        )
+
+        result = api.get_progress_by_student_all_pages(
+            class_descriptor="abc123",
+            class_name="EMERE01MC",
+            page_size=10,
+        )
+
+        self.assertEqual(
+            result["data"]["classroom"]["assignmentsPage"]["pageInfo"]["nextCursor"],
+            None,
+        )
+        self.assertEqual(session.request.call_count, 2)
+
 
 if __name__ == "__main__":
     unittest.main()
