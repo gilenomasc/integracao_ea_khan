@@ -37,6 +37,15 @@ def _build_roster_index(rosters_dir: str | Path) -> dict[str, dict]:
     return roster_index
 
 
+def _build_etapa_index(etapa_ea_payload: dict) -> dict[str, dict]:
+    etapa_index: dict[str, dict] = {}
+    for class_name, class_payload in etapa_ea_payload.items():
+        etapa_index[class_name] = {
+            "id_atividade_khan": class_payload.get("id_atividade_khan"),
+        }
+    return etapa_index
+
+
 def build_unified_payload(
     etapa_ea_payload: dict,
     match_results: list[dict],
@@ -45,10 +54,12 @@ def build_unified_payload(
     rosters_dir: str | Path,
     matches_dir: str | Path,
 ) -> dict:
+    etapa_index = _build_etapa_index(etapa_ea_payload)
     roster_index = _build_roster_index(rosters_dir)
     classes = {
         result["className"]: {
             **result,
+            **etapa_index.get(result["className"], {}),
             **roster_index.get(result["className"], {}),
         }
         for result in sorted(match_results, key=lambda item: item["className"])
