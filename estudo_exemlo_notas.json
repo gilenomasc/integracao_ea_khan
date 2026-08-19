@@ -1,0 +1,164 @@
+{
+    "Turmas": [
+        {
+            "Nome": "EMERE01MA",
+            "Notas": [
+                {
+                    "AcademicId": 62996,
+                    "StudentName": "Catarina Oliveira Nunes",
+                    "Score": 1.47
+                },
+                {
+                    "AcademicId": 63652,
+                    "StudentName": "Felipe Caroci Senti da Costa",
+                    "Score": 1.9
+                },
+                {
+                    "AcademicId": 63689,
+                    "StudentName": "Felipe Moreira Porto",
+                    "Score": 1.98
+                },
+                {
+                    "AcademicId": 63822,
+                    "StudentName": "Gabriel Alfredo Nunes Quiroz",
+                    "Score": 1.67
+                },
+                {
+                    "AcademicId": 83797,
+                    "StudentName": "Guilherme Souza Silva de Paula",
+                    "Score": 1.83
+                },
+                {
+                    "AcademicId": 82695,
+                    "StudentName": "Isabella Dias Paulino",
+                    "Score": 1.98
+                },
+                {
+                    "AcademicId": 64708,
+                    "StudentName": "Isabella Loterio Ferreira",
+                    "Score": 1.66
+                },
+                {
+                    "AcademicId": 83143,
+                    "StudentName": "Isabelle Rodrigues Figueiredo",
+                    "Score": 1.32
+                },
+                {
+                    "AcademicId": 81454,
+                    "StudentName": "Isabely da Silva Lima",
+                    "Score": 1.82
+                },
+                {
+                    "AcademicId": 78700,
+                    "StudentName": "Jo\u00E3o Vitor Reis Lima",
+                    "Score": 1.77
+                },
+                {
+                    "AcademicId": 83297,
+                    "StudentName": "Juan Carlo Oliveira Batista",
+                    "Score": 0.7
+                },
+                {
+                    "AcademicId": 65164,
+                    "StudentName": "Julia Pontes Silva",
+                    "Score": 1.81
+                },
+                {
+                    "AcademicId": 65341,
+                    "StudentName": "Kau\u00E3 Nicolas Miranda Silva",
+                    "Score":1.85
+                },
+                {
+                    "AcademicId": 83997,
+                    "StudentName": "Kauan Martins Alves de Jesus",
+                    "Score": 1.12
+                },
+                {
+                    "AcademicId": 82776,
+                    "StudentName": "Lara Manuela Moreno Rodrigues Paes Pereira",
+                    "Score": 1.85
+                },
+                {
+                    "AcademicId": 82698,
+                    "StudentName": "Leonardo Souza Silva",
+                    "Score": 1.61
+                },
+                {
+                    "AcademicId": 83096,
+                    "StudentName": "Lucas dos Santos Freitas",
+                    "Score": 1.6
+                },
+                {
+                    "AcademicId": 83107,
+                    "StudentName": "Luciana Fernandes de Oliveira",
+                    "Score": 1.64
+                },
+                {
+                    "AcademicId": 82818,
+                    "StudentName": "Lu\u00EDs Felipe Amaral Mota",
+                    "Score": 1.81
+                },
+                {
+                    "AcademicId": 79466,
+                    "StudentName": "Luis Otavio Santos Alves",
+                    "Score": 1.84
+                },
+                {
+                    "AcademicId": 66240,
+                    "StudentName": "Maria Eduarda de Oliveira Alves",
+                    "Score": 1.71
+                },
+                {
+                    "AcademicId": 66378,
+                    "StudentName": "Mariana Tibiri\u00E7\u00E1 de Souza",
+                    "Score": 1.81
+                },
+                {
+                    "AcademicId": 66633,
+                    "StudentName": "Micaella Lima Yo",
+                    "Score": 1.63
+                },
+                {
+                    "AcademicId": 77119,
+                    "StudentName": "Michelle Chen",
+                    "Score": 1.81
+                },
+                {
+                    "AcademicId": 84016,
+                    "StudentName": "Miguel Nascimento Freitas",
+                    "Score": 0.74
+                },
+                {
+                    "AcademicId": 66736,
+                    "StudentName": "Moriah Cardenette",
+                    "Score": 1.79
+                },
+                {
+                    "AcademicId": 83124,
+                    "StudentName": "Murilo Janu\u00E1rio Veiga",
+                    "Score": 1.61
+                },
+                {
+                    "AcademicId": 75560,
+                    "StudentName": "Sarah Rocha Figueiredo Pereira",
+                    "Score": 0.76
+                },
+                {
+                    "AcademicId": 79445,
+                    "StudentName": "Sofia Cust\u00F3dio Brito",
+                    "Score": 1.41
+                },
+                {
+                    "AcademicId": 83173,
+                    "StudentName": "Vitor de Paula Pereira Rocha",
+                    "Score": 0.19
+                },
+                {
+                    "AcademicId": 75804,
+                    "StudentName": "Yasmin Alcantara Torres Santiago Cardoso",
+                    "Score": 0.57
+                }
+            ]
+        }
+    ]
+}

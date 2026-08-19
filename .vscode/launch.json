@@ -2,31 +2,29 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "EA: Exportar alunos",
+      "name": "EA: validar lançamento de notas",
       "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/main_ea.py",
+      "program": "${workspaceFolder}/main_ea_grade_save.py",
       "console": "integratedTerminal",
-      "cwd": "${workspaceFolder}",
-      "justMyCode": true,
       "args": [
-        "${workspaceFolder}/tests/etapa_ea_alunos.debug.json",
-        "${input:eaEmail}",
-        "${input:eaPassword}"
+        "estudo_exemlo_notas.json",
+        "fernanda_lopes@eaportal.org",
+        "UN@XP0909"
       ]
-    }
-  ],
-  "inputs": [
-    {
-      "id": "eaEmail",
-      "type": "promptString",
-      "description": "Email da EA"
     },
     {
-      "id": "eaPassword",
-      "type": "promptString",
-      "description": "Senha da EA",
-      "password": true
+      "name": "EA: lançar notas",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/main_ea_grade_save.py",
+      "console": "integratedTerminal",
+      "args": [
+        "estudo_exemlo_notas.json",
+        "fernanda_lopes@eaportal.org",
+        "SUA_SENHA",
+        "--apply"
+      ]
     }
   ]
 }

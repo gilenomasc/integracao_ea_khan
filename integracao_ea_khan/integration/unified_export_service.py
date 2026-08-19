@@ -41,7 +41,7 @@ def _build_etapa_index(etapa_ea_payload: dict) -> dict[str, dict]:
     etapa_index: dict[str, dict] = {}
     for class_name, class_payload in etapa_ea_payload.items():
         etapa_index[class_name] = {
-            "id_atividade_khan": class_payload.get("id_atividade_khan"),
+            "class_assignment_id": class_payload.get("class_assignment_id"),
         }
     return etapa_index
 

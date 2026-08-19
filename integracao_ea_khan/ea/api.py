@@ -33,7 +33,7 @@ class TeacherPortalAPI(BaseClient):
         r = self.request("POST", endpoint, data=payload)
         return self._get_data(r)
     
-    def get_id_avaliacao_Khan(self, subterm_id):
+    def get_class_assignment_id(self, subterm_id):
         endpoint = "/teacherportal/EvaluatedAssignment/Grid_Read"
         payload = {
             "sort": "",
@@ -86,34 +86,20 @@ class TeacherPortalAPI(BaseClient):
             if inicio <= agora <= fim:
                 return subterm
 
-    def grade_save(self, academic_id, course_offering, enrollment_number, identity, natural_person_id, score, student_name, subterm_course_assigned_id, student_id):
+    def grade_save(self, json_payload):
 
         endpoint = "/teacherportal/AssignmentGrades/Save"
-
-        payload = [
-            {
-                'Notes': None,
-                'CourseEnrollmentStatus': 1,
-                'ResultOutdated': False,
-                'Grade': None,
-                'SubtermCourseAssignmentStatus': 0,
-                'AcademicId': academic_id,
-                'CourseOffering': 'EMERE01MAMATEM',
-                'ClassAssignmentId': '4900b461-6092-4d21-9eab-d97ff32dc6ca',
-                'EnrollmentNumber': enrollment_number,
-                'Identity': identity,
-                'NaturalPersonId': natural_person_id,
-                'Score': score,
-                'StudentName': student_name,
-                'SubtermCourseAssignedId': subterm_course_assigned_id,
-                'IsInclusionStudent': False,
-                'StudentId': student_id,
-                'HasOccurrence': False,
-                'MeetingDate': None,
-                'DeactivateOccurrence': True,
-            },
-        ]
-
-        r = self.request("POST", endpoint, json=payload)
-
+        r = self.request("POST", endpoint, json=json_payload)
         return r
+
+    def get_student_grades(self, class_assignment_id):
+
+        endpoint = "/teacherportal/AssignmentGrades/Grid_Read"
+        payload = {
+            "sort": "",
+            "group": "",
+            "filter": "",
+            "classAssignmentId": class_assignment_id
+        }
+        r = self.request("POST", endpoint, data=payload)
+        return self._get_data(r)
