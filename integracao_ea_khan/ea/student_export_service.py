@@ -31,6 +31,7 @@ class StudentExportService:
                 log_step("EA", index, len(turmas), f"Turma {nome_turma}: sem bimestre ativo, ignorada.")
                 continue
 
+            class_assignment_id = self.api.get_class_assignment_id(subterm["Identity"])
             log_step("EA", index, len(turmas), f"Turma {nome_turma}: carregando alunos.")
             alunos = self.api.alunos_da_turma(subterm["Identity"])
             alunos_ativos = [
@@ -40,6 +41,7 @@ class StudentExportService:
             ]
             dados_json[nome_turma] = {
                 "header": ["RA", "Aluno"],
+                "class_assignment_id": class_assignment_id,
                 "rows": alunos_ativos,
             }
             log_progress("EA", f"Turma {nome_turma}: {len(alunos_ativos)} alunos ativos exportados.")

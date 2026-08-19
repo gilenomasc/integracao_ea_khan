@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "EA: validar lançamento de notas",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/main_ea_grade_save.py",
+      "console": "integratedTerminal",
+      "args": [
+        "estudo_exemlo_notas.json",
+        "fernanda_lopes@eaportal.org",
+        "UN@XP0909"
+      ]
+    },
+    {
+      "name": "EA: lançar notas",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/main_ea_grade_save.py",
+      "console": "integratedTerminal",
+      "args": [
+        "estudo_exemlo_notas.json",
+        "fernanda_lopes@eaportal.org",
+        "SUA_SENHA",
+        "--apply"
+      ]
+    }
+  ]
+}

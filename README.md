@@ -5,6 +5,7 @@ Projeto unificado para EA + Khan Academy com um unico ambiente virtual.
 ## Scripts
 
 - `main_ea.py`
+- `main_ea_grade_save.py`
 - `main_khan.py`
 - `main_khan_progress.py`
 - `unify_etapas.py`
@@ -20,10 +21,14 @@ Projeto unificado para EA + Khan Academy com um unico ambiente virtual.
 
 ```powershell
 .\.venv\Scripts\python.exe main_ea.py tests\etapa_ea_alunos.json EMAIL SENHA
+.\.venv\Scripts\python.exe main_ea_grade_save.py estudo_exemlo_notas.json EMAIL SENHA
+.\.venv\Scripts\python.exe main_ea_grade_save.py estudo_exemlo_notas.json EMAIL SENHA --apply
 .\.venv\Scripts\python.exe main_khan.py EMAIL SENHA --etapa-ea-file tests\etapa_ea_alunos.json
 .\.venv\Scripts\python.exe unify_etapas.py --ea-email EMAIL --ea-password SENHA --khan-email EMAIL --khan-password SENHA
 .\.venv\Scripts\python.exe main_khan_progress.py EMAIL SENHA --unified-file tests\unified\unified_matches.json --simplified-output-file tests\unified\progress_simplified.json
 ```
+
+`main_ea_grade_save.py` apenas valida a carga por padrao. A opcao `--apply` e necessaria para gravar as notas.
 
 ## Testes
 
