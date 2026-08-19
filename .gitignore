@@ -11,3 +11,8 @@ tests/matches/
 tests/classroom_progress/
 tests/*.json
 tests/fixtures/
+
+# Arquivos temporarios de estudo de lancamento de notas
+estudo_exemlo_notas.json
+estudo_grade_save.py
+estudo_resposta_grid_read.json
