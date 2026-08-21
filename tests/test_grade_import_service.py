@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 
 from integracao_ea_khan.ea.grade_import_service import GradeImportError, GradeImportService
 
@@ -8,6 +8,12 @@ class GradeImportServiceTestCase(unittest.TestCase):
     def setUp(self) -> None:
         self.api = MagicMock()
         self.service = GradeImportService(self.api)
+        self.context_ids = patch(
+            "integracao_ea_khan.ea.grade_import_service.get_context_ids_cached",
+            return_value=("employee", "term"),
+        )
+        self.context_ids.start()
+        self.addCleanup(self.context_ids.stop)
 
     def test_import_grades_builds_save_payload_from_grid_and_normalizes_leading_zero_ra(self) -> None:
         self.api.listar_turmas.return_value = [{"CourseOfferingGroup": "EMERE01MA", "SectionSubtermList": [{"Identity": "subterm"}]}]

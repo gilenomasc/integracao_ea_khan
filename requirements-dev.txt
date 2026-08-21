@@ -1,0 +1,2 @@
+# Dependencia usada somente para gerar os executaveis de distribuicao.
+pyinstaller>=6,<7

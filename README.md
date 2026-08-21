@@ -35,4 +35,22 @@ Projeto unificado para EA + Khan Academy com um unico ambiente virtual.
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover -s tests -p "test_*.py"
 ```
+
+## Distribuicao Windows
+
+Os arquivos de sessao, cache e saidas padrao sao gravados em
+`%LOCALAPPDATA%\IntegracaoEA-Khan`, fora da pasta de instalacao. Os caminhos
+informados pelo Excel/VBA continuam sendo respeitados pelos argumentos do console.
+
+Para gerar os executaveis de console no ambiente de desenvolvimento:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+.\build.ps1
+```
+
+O script cria uma pasta para cada ponto de entrada em `dist\`. Distribua toda
+a pasta `dist\` quando for utilizar `unify_etapas.exe`, pois ele chama
+`main_ea.exe` e `main_khan.exe` nas pastas irmas de distribuicao. A pasta
+`queries\` e incluida automaticamente; `auth\` e `state\` nao fazem parte do pacote.
 # integracao_ea_khan

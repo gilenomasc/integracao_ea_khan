@@ -2,7 +2,9 @@ import re
 import json
 from pathlib import Path
 
-CACHE_FILE = Path(__file__).resolve().parents[2] / "state" / "ea_context_cache.json"
+from integracao_ea_khan.runtime import user_data_path
+
+CACHE_FILE = user_data_path("state", "ea_context_cache.json")
 
 
 def extract_selected_item(html, field_name):

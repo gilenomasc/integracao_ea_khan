@@ -10,16 +10,17 @@ from integracao_ea_khan.khan.progress_export_service import KhanProgressExportSe
 from integracao_ea_khan.khan.session_manager import SessionManager
 from integracao_ea_khan.khan.settings import settings
 from integracao_ea_khan.progress import log_progress
+from integracao_ea_khan.runtime import user_data_path
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("email")
     parser.add_argument("password")
-    parser.add_argument("--unified-file", default="tests/unified/unified_matches.json")
-    parser.add_argument("--output-dir", default="tests/unified/progress_raw")
-    parser.add_argument("--index-output-file", default="tests/unified/progress_raw_index.json")
-    parser.add_argument("--simplified-output-file", default="tests/unified/progress_simplified.json")
+    parser.add_argument("--unified-file", default=str(user_data_path("dados", "unified", "unified_matches.json")))
+    parser.add_argument("--output-dir", default=str(user_data_path("dados", "khan", "progress_raw")))
+    parser.add_argument("--index-output-file", default=str(user_data_path("dados", "khan", "progress_raw_index.json")))
+    parser.add_argument("--simplified-output-file", default=str(user_data_path("dados", "khan", "progress_simplified.json")))
     parser.add_argument("--page-size", type=int, default=40)
     return parser.parse_args()
 
