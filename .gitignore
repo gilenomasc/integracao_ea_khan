@@ -5,6 +5,11 @@ __pycache__/
 auth/*.json
 state/*.json
 
+# Saidas geradas pelo empacotamento local
+build/
+dist/
+*.spec
+
 tests/unified/
 tests/classroom_rosters/
 tests/matches/

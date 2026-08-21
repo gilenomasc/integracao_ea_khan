@@ -11,6 +11,7 @@ from integracao_ea_khan.khan.session_manager import SessionManager
 from integracao_ea_khan.khan.settings import settings
 from integracao_ea_khan.matching.name_match_service import match_students
 from integracao_ea_khan.progress import log_progress, log_step
+from integracao_ea_khan.runtime import user_data_path
 
 
 def parse_args() -> argparse.Namespace:
@@ -21,11 +22,11 @@ def parse_args() -> argparse.Namespace:
         "--class-list-output-file",
         "--output-file",
         dest="class_list_output_file",
-        default="tests/class_list_response.json",
+        default=str(user_data_path("dados", "khan", "class_list_response.json")),
     )
-    parser.add_argument("--rosters-dir", default="tests/classroom_rosters")
+    parser.add_argument("--rosters-dir", default=str(user_data_path("dados", "khan", "rosters")))
     parser.add_argument("--etapa-ea-file")
-    parser.add_argument("--matches-dir", default="tests/matches")
+    parser.add_argument("--matches-dir", default=str(user_data_path("dados", "khan", "matches")))
     parser.add_argument("--match-engine", choices=["baseline", "fast"], default="fast")
     parser.add_argument("--match-min-score", type=float)
     return parser.parse_args()

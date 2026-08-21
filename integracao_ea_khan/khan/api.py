@@ -2,10 +2,11 @@ from __future__ import annotations
 from pathlib import Path
 
 from integracao_ea_khan.progress import log_progress
+from integracao_ea_khan.runtime import resource_path
 
 from .base_client import BaseClient
 
-QUERIES_DIR = Path(__file__).resolve().parents[2] / "queries"
+QUERIES_DIR = resource_path("queries")
 
 
 def load_query(filename: str) -> str:
