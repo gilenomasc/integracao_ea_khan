@@ -1,5 +1,5 @@
 #define MyAppName "Integracao EA-Khan"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.0.1"
 
 [Setup]
 AppId={{7F31A8C1-5D84-4E21-BB3D-6A3F9C9E1D72}
@@ -29,11 +29,11 @@ DisableWelcomePage=no
 OutputBaseFilename=Setup_Integracao_EA_Khan_{#MyAppVersion}
 
 SetupIconFile=..\assets\EA_Khan.ico
-UninstallDisplayIcon={app}\app\unify_etapas\unify_etapas.exe
+UninstallDisplayIcon={app}\app\unify_etapas.exe
 
 
 [Files]
-Source: "..\dist\*"; DestDir: "{app}\app"; Flags: recursesubdirs createallsubdirs
+Source: "..\dist\integracao_ea_khan\*"; DestDir: "{app}\app"; Flags: recursesubdirs createallsubdirs
 
 [Languages]
 

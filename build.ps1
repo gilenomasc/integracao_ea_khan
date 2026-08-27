@@ -17,19 +17,14 @@ if (-not (Test-Path $icon)) {
     throw "Arquivo de ícone não encontrado: $icon"
 }
 
-$entries = @(
-    "main_ea.py",
-    "main_ea_grade_save.py",
-    "main_khan.py",
-    "main_khan_progress.py",
-    "unify_etapas.py"
-)
-
-foreach ($entry in $entries) {
-    & $python -m PyInstaller --noconfirm --clean --onedir --icon $icon --console --add-data "queries;queries" $entry
-    if ($LASTEXITCODE -ne 0) {
-        throw "Falha ao empacotar $entry."
-    }
+if (Test-Path (Join-Path $PSScriptRoot "dist")) {
+    Remove-Item (Join-Path $PSScriptRoot "dist") -Recurse -Force
 }
 
-Write-Host "Pacotes criados em .\dist\"
+$spec = Join-Path $PSScriptRoot "integracao_ea_khan.spec"
+& $python -m PyInstaller --noconfirm --clean $spec
+if ($LASTEXITCODE -ne 0) {
+    throw "Falha ao empacotar o projeto."
+}
+
+Write-Host "Pacote criado em .\dist\integracao_ea_khan\"

@@ -49,8 +49,8 @@ Para gerar os executaveis de console no ambiente de desenvolvimento:
 .\build.ps1
 ```
 
-O script cria uma pasta para cada ponto de entrada em `dist\`. Distribua toda
-a pasta `dist\` quando for utilizar `unify_etapas.exe`, pois ele chama
-`main_ea.exe` e `main_khan.exe` nas pastas irmas de distribuicao. A pasta
-`queries\` e incluida automaticamente; `auth\` e `state\` nao fazem parte do pacote.
+O script cria um pacote unico em `dist\integracao_ea_khan\`, com todos os
+pontos de entrada e uma unica pasta de dependencias compartilhadas. Distribua
+essa pasta inteira quando for utilizar `unify_etapas.exe`. A pasta `queries\` e
+incluida automaticamente; `auth\` e `state\` nao fazem parte do pacote.
 # integracao_ea_khan

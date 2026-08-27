@@ -33,7 +33,10 @@ def run_command(command: list[str], workdir: Path) -> None:
 def entrypoint_command(entrypoint: str, arguments: list[str]) -> tuple[list[str], Path]:
     """Monta o comando tanto no codigo-fonte quanto no pacote PyInstaller."""
     if getattr(sys, "frozen", False):
-        executable = Path(sys.executable).parent.parent / Path(entrypoint).stem / f"{Path(entrypoint).stem}.exe"
+        executable_name = f"{Path(entrypoint).stem}.exe"
+        executable = Path(sys.executable).parent / executable_name
+        if not executable.exists():
+            executable = Path(sys.executable).parent.parent / Path(entrypoint).stem / executable_name
         if not executable.exists():
             raise RuntimeError(f"Executavel complementar nao encontrado: {executable}")
         return [str(executable), *arguments], executable.parent
