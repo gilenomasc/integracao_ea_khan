@@ -9,6 +9,7 @@ state/*.json
 build/
 dist/
 *.spec
+!integracao_ea_khan.spec
 
 tests/unified/
 tests/classroom_rosters/
@@ -16,7 +17,7 @@ tests/matches/
 tests/classroom_progress/
 tests/*.json
 tests/fixtures/
-
+installer/output/
 # Arquivos temporarios de estudo de lancamento de notas
 estudo_exemlo_notas.json
 estudo_grade_save.py

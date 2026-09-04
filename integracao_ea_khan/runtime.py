@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 
-APP_NAME = "IntegracaoEA-Khan"
+APP_NAME = "Integracao_EA-Khan"
 
 
 def app_data_dir() -> Path:
