@@ -103,3 +103,31 @@ class TeacherPortalAPI(BaseClient):
         }
         r = self.request("POST", endpoint, data=payload)
         return self._get_data(r)
+
+    def load_occurrence_type_list(self):
+        endpoint = "/teacherportal/ClassOcurrence/GetListOccurrenceTypeByFilter"
+        params = {
+            "filter": "",
+            "numRows": "100",
+            "pageIndex": "0",
+            "category": "Todos",
+        }
+        return self.request("POST", endpoint, params=params).json()
+
+    def load_students_by_section(self, section_id):
+        endpoint = "/teacherportal/ClassOcurrence/GetListStudentByCourseOfferingSectionForTeacherPortal"
+        params = {
+            "sort": "",
+            "group": "",
+            "filter": "",
+            "sectionId": section_id,
+        }
+        return self.request("POST", endpoint, params=params)
+
+    def class_occurrence_create(self, section_id):
+        endpoint = "/teacherportal/ClassOcurrence/Create"
+        return self.request("POST", endpoint, json={"courseOfferingSectionId": section_id})
+
+    def class_occurrence_save(self, payload):
+        endpoint = "/teacherportal/ClassOcurrence/Save"
+        return self.request("POST", endpoint, json=payload)
