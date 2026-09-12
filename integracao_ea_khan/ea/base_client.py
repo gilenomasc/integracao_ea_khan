@@ -3,7 +3,7 @@ import requests
 
 class BaseClient:
 
-    def __init__(self, base_url: str, session_manager: requests.Session) -> None:
+    def __init__(self, base_url, session_manager) -> None:
 
         self.base_url = base_url
         self.session = requests.Session()
@@ -12,7 +12,7 @@ class BaseClient:
         self.session_manager.session = self.session
         self.session_manager.load_cookies()
 
-    def request(self, method: str, endpoint: str, **kwargs) -> requests.Response:
+    def request(self, method, endpoint, **kwargs) -> requests.Response:
 
         url = f"{self.base_url}{endpoint}"
 
@@ -33,7 +33,8 @@ class BaseClient:
                 **kwargs
             )
 
+        r.raise_for_status()
         return r
 
-    def _get_data(self, response) -> list[dict]:
+    def _get_data(self, response):
         return response.json().get("Data", [])

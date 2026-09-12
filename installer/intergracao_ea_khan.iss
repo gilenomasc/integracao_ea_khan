@@ -1,5 +1,5 @@
 #define MyAppName "Integracao EA-Khan"
-#define MyAppVersion "1.0.1"
+#define MyAppVersion "1.0.3"
 
 [Setup]
 AppId={{7F31A8C1-5D84-4E21-BB3D-6A3F9C9E1D72}
@@ -100,7 +100,6 @@ begin
     WizardForm.SelectDirPage.Width - WizardForm.SelectDirLabel.Left * 2,
     50
   );
-
 
   { Reposiciona os controles do diretório }
 

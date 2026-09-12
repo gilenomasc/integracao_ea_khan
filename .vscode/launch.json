@@ -8,10 +8,18 @@
       "program": "${workspaceFolder}/main_ea_grade_save.py",
       "console": "integratedTerminal",
       "args": [
-        "estudo_exemlo_notas.json",
+        "notas.json",
         "fernanda_lopes@eaportal.org",
         "UN@XP0909"
       ]
+    },
+        {
+      "name": "Testar ocorrências EA",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "integracao_ea_khan.ea.students_occurrence_service",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
     },
     {
       "name": "EA: lançar notas",
@@ -20,7 +28,7 @@
       "program": "${workspaceFolder}/main_ea_grade_save.py",
       "console": "integratedTerminal",
       "args": [
-        "estudo_exemlo_notas.json",
+        "notas.json",
         "fernanda_lopes@eaportal.org",
         "SUA_SENHA",
         "--apply"

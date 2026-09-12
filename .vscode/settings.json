@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./integracao_ea_khan/ea"
+    ]
+}

@@ -11,6 +11,7 @@ icon = str(project_root / "assets" / "EA_Khan.ico")
 entrypoints = [
     "main_ea",
     "main_ea_grade_save",
+    "main_ea_occurrence_save",
     "main_khan",
     "main_khan_progress",
     "unify_etapas",
